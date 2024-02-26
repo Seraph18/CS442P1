@@ -1,6 +1,8 @@
 package assignment02;
 
 import java.util.Set;
+import java.util.HashSet;
+
 
 public class Word extends Decorator {
 	private String thisWord;
