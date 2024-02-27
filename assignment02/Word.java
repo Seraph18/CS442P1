@@ -49,7 +49,7 @@ public class Word extends Decorator {
 		// include y if thisWord is in Ywords.hasYvowel
 		// you may find new words that have to be addes 
 		// to the file yconsonant.txt
-		Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u');
+		Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u', 'y');
 		if (assignment02.Ywords.hasYvowel.contains(thisWord.toLowerCase())) {
             	vowels = new HashSet<>(vowels);
             	vowels.add('y'); 
