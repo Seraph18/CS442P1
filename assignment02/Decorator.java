@@ -21,7 +21,6 @@ public abstract class Decorator extends Component {
         
 		for (Character c : getConsonantsInWord()) {
 			consonants.add(c);
-			break;
 		}
 		return consonants;
 	}

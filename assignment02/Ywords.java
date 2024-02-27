@@ -11,13 +11,13 @@ public class Ywords {
 	public static Set<String> hasYconsonant = new TreeSet<>();
 	static {
 		try {
-			String vowelWords = Files.readString(Paths.get("yvowel.txt"));
+			String vowelWords = Files.readString(Paths.get("assignment02/yvowel.txt"));
 			vowelWords = vowelWords.toLowerCase();
 			String[] split = vowelWords.split("\\s+");
 			for(String str : split) hasYvowel.add(str); 
 			System.out.println("Loading Y vowel words: " + hasYvowel);
 
-			String consonantWords = Files.readString(Paths.get("yconsonant.txt"));
+			String consonantWords = Files.readString(Paths.get("assignment02/yconsonant.txt"));
 			consonantWords = consonantWords.toLowerCase();
 			split = consonantWords.split("\\s+");
 			for(String str : split) hasYconsonant.add(str); 
