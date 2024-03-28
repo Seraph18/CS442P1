@@ -11,6 +11,9 @@ public class Capture implements Command {
 		iccf = i;
 		board = brd;
 		// Compute undoICCF (see Move)
+		int from = i / 100;
+   		int to = i % 100;
+    		undoICCF = (to * 100) + from;
 	}
 
 	@Override
@@ -29,9 +32,18 @@ public class Capture implements Command {
 	public void undo() {
 		// first reverse the move executed above
 		// as is done in Move
+		int fromICCF = iccf/100;
+		int toICCF = iccf%100;
+		Piece p = board.getICCF(toICCF);
+		board.setICCF(new Piece(NONE, "--", " ", fromICCF, false));
 		
 		// next set lost back to active
 		// set its position to its old location
 		// set it onto the board.
+		lost.setActive(true);
+		lost.setPos(toICCF);
+		p.setPos(fromICCF);
+		board.setICCF(p);
+		
 	}
 }
