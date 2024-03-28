@@ -50,7 +50,7 @@ public abstract class Decorator extends Component {
 				singleVowelSet.add(vowel);
 				updatedCombinations.add(singleVowelSet);
 			}
-			max = 1; // Since we're adding individual vowels, the max size is 1
+			max = 1; // individual vowels so the max size is 1
 		} else {
 			// Expand existing combinations with vowels from the current word
 			for (Set<Character> set : existingCombinations) {

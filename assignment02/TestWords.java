@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class TestWords {
 	public static void main(String[] args) throws IOException {
-		String test = Files.readString(Paths.get("assignment02/smallTest.txt"));
+		String test = Files.readString(Paths.get("assignment02/TEST.txt"));
 		test = test.toLowerCase();
 		String[] split = test.split("[,.!?\\s]+");
 		//check:
