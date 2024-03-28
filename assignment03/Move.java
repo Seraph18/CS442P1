@@ -11,6 +11,9 @@ public class Move implements Command {
 		board = brd;
 		// COMPUTE THE VALUE OF undoICCF
 		// e.g. if iccf is 1759, undoICCF is 5917
+		int from = i / 100;
+   		int to = i % 100;
+    		undoICCF = (to * 100) + from;
 	}
 
 	@Override
@@ -25,7 +28,11 @@ public class Move implements Command {
 
 	@Override
 	public void undo() {
-		// just reverse the move executed above
-		// do the move undoICCF instead of doing the move iccf
+    		int fromICCF = undoICCF / 100;
+   		int toICCF = undoICCF % 100;   
+    		Piece p = board.getICCF(toICCF); 
+    		board.setICCF(new Piece(NONE, "--", " ", toICCF, false)); 
+    		p.setPos(fromICCF); 
+    		board.setICCF(p); 
 	}
 }
