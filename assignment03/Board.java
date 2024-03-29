@@ -101,6 +101,9 @@ public class Board {
 		// clear the undo stack
 		// put this command on the executedStack
 		// execute the command
+		undoneStack.clear();
+		executedStack.add(cm);
+		cm.execute();
 	}
 	
 	public void undoCommand() {
@@ -108,11 +111,22 @@ public class Board {
 		// get the last executed command
 		// move it to the redo stack
 		// call the undo of the command
+		if (!executedStack.isEmpty()) {
+			Command commandToUndo = executedStack.pop();
+			undoneStack.push(commandToUndo);
+			commandToUndo.undo();
+		}
 	}
 	public void redoCommand() {
 		// if there is a command to be redone
 		// get the last undone command
 		// move it to the executed stack
 		// call the execute of the command
+
+		if (!undoneStack.isEmpty()) {
+			Command commandToRedo = undoneStack.pop();
+			executedStack.push(commandToRedo);
+			commandToRedo.execute();
+		}
 	}
 }
