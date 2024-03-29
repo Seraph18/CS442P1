@@ -30,8 +30,8 @@ public class Capture implements Command {
 
 	@Override
 	public void undo() {
-   		int fromICCF = iccf / 100;
-    		int toICCF = iccf % 100;
+   		int fromICCF = undoICCF / 100;
+   		int toICCF = undoICCF % 100;  
     		Piece p = board.getICCF(toICCF);
 
 		p.setPos(fromICCF);
