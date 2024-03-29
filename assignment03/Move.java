@@ -28,17 +28,16 @@ public class Move implements Command {
 
 	@Override
 	public void undo() {
-    		    System.out.println("\n\n\nentered move UNdo \n\n\n");
 
-    int originalPosition = undoICCF % 100;
-    int newPosition = undoICCF / 100;
+    		int originalPosition = undoICCF % 100;
+    		int newPosition = undoICCF / 100;
 
-    Piece p = board.getICCF(newPosition);
+		Piece p = board.getICCF(newPosition);
 
-    board.setICCF(new Piece(NONE, "--", " ", newPosition, false));
+    		board.setICCF(new Piece(NONE, "--", " ", newPosition, false));
 
-    p.setPos(originalPosition);
+	    	p.setPos(originalPosition);
 
-    board.setICCF(p);
+		board.setICCF(p);
 	}
 }
