@@ -30,7 +30,7 @@ public class Move implements Command {
 	public void undo() {
     		int fromICCF = undoICCF / 100;
    		int toICCF = undoICCF % 100;   
-    		Piece p = board.getICCF(toICCF); 
+    		Piece p = board.getICCF(fromICCF); 
     		board.setICCF(new Piece(NONE, "--", " ", toICCF, false)); 
     		p.setPos(fromICCF); 
     		board.setICCF(p); 
