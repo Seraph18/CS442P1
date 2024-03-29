@@ -32,14 +32,14 @@ public class Capture implements Command {
 	public void undo() {
    		int fromICCF = undoICCF / 100;
    		int toICCF = undoICCF % 100;  
-    		Piece p = board.getICCF(toICCF);
+    		Piece p = board.getICCF(fromICCF);
 
 		p.setPos(fromICCF);
     		board.setICCF(p);
 
     		lost.setActive(true);
     		lost.setPos(toICCF);
-    		board.setICCF(lost); // This line was missing
+    		board.setICCF(lost);
 		
 	}
 }
