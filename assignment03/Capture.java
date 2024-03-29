@@ -30,20 +30,16 @@ public class Capture implements Command {
 
 	@Override
 	public void undo() {
-		// first reverse the move executed above
-		// as is done in Move
-		int fromICCF = iccf/100;
-		int toICCF = iccf%100;
-		Piece p = board.getICCF(toICCF);
-		board.setICCF(new Piece(NONE, "--", " ", fromICCF, false));
-		
-		// next set lost back to active
-		// set its position to its old location
-		// set it onto the board.
-		lost.setActive(true);
-		lost.setPos(toICCF);
+   		int fromICCF = iccf / 100;
+    		int toICCF = iccf % 100;
+    		Piece p = board.getICCF(toICCF);
+
 		p.setPos(fromICCF);
-		board.setICCF(p);
+    		board.setICCF(p);
+
+    		lost.setActive(true);
+    		lost.setPos(toICCF);
+    		board.setICCF(lost); // This line was missing
 		
 	}
 }
