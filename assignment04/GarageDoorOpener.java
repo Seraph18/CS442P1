@@ -51,16 +51,15 @@ public class GarageDoorOpener {
 				} else if(inputLine.toLowerCase().equals("getstate")) {
 					// TODO send the opener's serialized currentState
 				} else if(inputLine.toLowerCase().startsWith("set code")) {
-					// TODO use inputLine.toLowerCase().split("\\s+") to get an
-					// array of Strings and convert it to the code to set the
-					// code of opener.
-					// Note that the client will send a message such as
-					// "set code 3 9 5 2"
-					// so the array of Strings would be 
-					// arr = ["set", "code", "3", "9", "5", "2"] 
-					// you extract the int from a String such as "5" 
-					// using arr[4].charAt(0)-'0'
-					// or using Integer.parseIng(arr[4])
+					    String[] parts = inputLine.split("\\s+");
+					    int[] newCode = new int[] {
+					        Integer.parseInt(parts[2]),
+					        Integer.parseInt(parts[3]),
+					        Integer.parseInt(parts[4]),
+					        Integer.parseInt(parts[5])
+					    };
+					    setCode(newCode);
+				
 				} else if (inputLine.length() == 1 
 						&& '0' <= inputLine.charAt(0) && '9' >= inputLine.charAt(0)) {
 					// we pass the keypad digit to opener 
@@ -105,9 +104,11 @@ public class GarageDoorOpener {
 		if(k != -1) {
 			// TODO get the new value for currentState 
 			// by calling the enter_key of currentState
+			currentState = currentState.enter_key(k, this);
 		} else {
 			// TODO get the new value for currentState
 			// by calling the press_open of currentState
+			currentState = currentState.press_open(this);
 		}
 		// the following output is just for tracking the state changes
 		System.out.println(currentState + ", valid = " 
