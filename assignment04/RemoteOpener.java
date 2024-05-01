@@ -55,20 +55,20 @@ public class RemoteOpener {
 				}
 				switch(userInput.toLowerCase()) {
 				case "door id":
-					// TODO use out.println to send the message "getDoor"
+					out.println("getDoor");
 					
 					// the following prints the server response
 					System.out.println("Door is " + inScanner.nextLine());
 					break;
 				case "door state":
-					// TODO use out.println to send the message "getDoorState"
+					out.println("getDoorState");
 					
 					// the following deserializes the response and prints it
 					GarageDoorOpener.DoorState dstate = (GarageDoorOpener.DoorState)inObj.readObject();
 					System.out.println("Door State is " + dstate);
 					break;
 				case "state":
-					// TODO use out.println to send the message "getState"
+					out.println("getState");
 					
 					// TODO use code similar to the code above for DoorState to receive,
 					// deserialize, and print the State of the server
