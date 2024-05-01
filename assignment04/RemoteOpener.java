@@ -69,9 +69,9 @@ public class RemoteOpener {
 					break;
 				case "state":
 					out.println("getState");
+					State state = (State)inObj.readObject();
+					System.out.println("State is " + state);
 					
-					// TODO use code similar to the code above for DoorState to receive,
-					// deserialize, and print the State of the server
 					break;
 				case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
 					// send the digits to the server
