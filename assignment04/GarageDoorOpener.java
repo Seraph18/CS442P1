@@ -43,13 +43,12 @@ public class GarageDoorOpener {
 			while ((inputLine = in.readLine()) != null) {
 				System.out.println("Received " + inputLine);
 				if(inputLine.toLowerCase().equals("getdoor")) {
-					// TODO use outText.println
-					// to send the opener's doorDescription
+					outText.println(getDoorDescription());
 				} else if(inputLine.toLowerCase().equals("getdoorstate")) {
 					// this is how you send a opener's serialized stateOfDoor
 					outObj.writeObject(opener.getStateOfDoor());
 				} else if(inputLine.toLowerCase().equals("getstate")) {
-					// TODO send the opener's serialized currentState
+					outObj.writeObject(getCurrentState());
 				} else if(inputLine.toLowerCase().startsWith("set code")) {
 					    String[] parts = inputLine.split("\\s+");
 					    int[] newCode = new int[] {
@@ -102,12 +101,10 @@ public class GarageDoorOpener {
 	}
 	public void enterKey(int k) {
 		if(k != -1) {
-			// TODO get the new value for currentState 
-			// by calling the enter_key of currentState
+			
 			currentState = currentState.enter_key(k, this);
 		} else {
-			// TODO get the new value for currentState
-			// by calling the press_open of currentState
+			
 			currentState = currentState.press_open(this);
 		}
 		// the following output is just for tracking the state changes
