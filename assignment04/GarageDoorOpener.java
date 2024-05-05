@@ -43,12 +43,12 @@ public class GarageDoorOpener {
 			while ((inputLine = in.readLine()) != null) {
 				System.out.println("Received " + inputLine);
 				if(inputLine.toLowerCase().equals("getdoor")) {
-					outText.println(getDoorDescription());
+					outText.println(opener.getDoorDescription());
 				} else if(inputLine.toLowerCase().equals("getdoorstate")) {
 					// this is how you send a opener's serialized stateOfDoor
 					outObj.writeObject(opener.getStateOfDoor());
 				} else if(inputLine.toLowerCase().equals("getstate")) {
-					outObj.writeObject(getCurrentState());
+					outObj.writeObject(opener.getCurrentState());
 				} else if(inputLine.toLowerCase().startsWith("set code")) {
 					    String[] parts = inputLine.split("\\s+");
 					    int[] newCode = new int[] {
@@ -57,7 +57,7 @@ public class GarageDoorOpener {
 					        Integer.parseInt(parts[4]),
 					        Integer.parseInt(parts[5])
 					    };
-					    setCode(newCode);
+					    opener.setCode(newCode);
 				
 				} else if (inputLine.length() == 1 
 						&& '0' <= inputLine.charAt(0) && '9' >= inputLine.charAt(0)) {

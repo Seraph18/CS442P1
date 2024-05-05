@@ -52,7 +52,7 @@ public enum State {
 
     abstract State enter_key(int k, GarageDoorOpener opener);
 
-    @Override
+    //@Override
     public State press_open(GarageDoorOpener opener) {
         opener.setValid(false);
         return WAITING;
